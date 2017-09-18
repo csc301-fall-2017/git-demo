@@ -3,11 +3,11 @@
 script of this demo:
 
 we pretend we are working on a couple of features.
-Mathew makes f1 and alexei makes f2.
+Tokyo makes f1 and Toronto makes f2.
 
 We do it a couple of ways.. including a conflict.
 
-Let's pretend it's a little C program.
+We pretend it's a little C program.
 
 include.h, source.c, README.md is all there is.
 
@@ -15,27 +15,29 @@ include.h, source.c, README.md is all there is.
 
 on branch: take-turns
 
-1. matz pushes f1 in source.c
-1. alexei pulls, changes source.c
-1. alexei pushes f2
+1. Tokyo "implements" f1 in include.h, pushes
+1. Toronto pulls, "implements" f2 in source.c
+1. Toronto pushes f2
 
 ## Script for simple collab that goes wrong
 
 on branch: ff (ff stands for fast forward)
 
-1. alexei, pushes f1 in include.h (NOTE include.h!!)
-1. matz, meanwhile writes f2
-1. matz tries to push f2.. can't because tip is out of date??
-1. matz pulls. merge is fine because changes are to different files
-1. matz pushes f1 and f2
+1. Tokyo "implements" f1 in include.h, pushes
+1. Toronto "implements" f2 in source.c, commits
+1. Toronto tries to push.. fails because behind
+1. Toronto fetches, merges
+1. Now Toronto can push
+
 
 ## Script for simple collab that goes even more wrong
 
 on branch: conflict
 
-1. alexei pushes f1 (changing first line) in source.c
-2. meanwhile, matz writes f2, also changing first line of source.c
-3. matz can't push, pulls, conflict!
-4. matz resolves conflict and pushes resolved source.c with both f1
-   and f2 in source.c
+1. Tokyo "implements" f1 by adding second line to source.c
+1. Tokyo pushes
+1. Toronto "implements" f2 in source.c, commits
+1. Toronto tries to push.. fails because behind (again)
+1. Toronto fetches, merges.. conflict
+1. Toronto now can push
 
