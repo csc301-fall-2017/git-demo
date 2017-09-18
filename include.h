@@ -1,3 +1,3 @@
 //demo include files
-#define VERSION 0
+#define VERSION 1
 #define TEST 10
